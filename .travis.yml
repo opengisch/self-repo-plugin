@@ -1,5 +1,12 @@
 dist: trusty
 language: python
+python:
+  - "3.6"
+install:
+  - pip install -r requirements
+script:
+  - pytest
+
 env:
   global:
   - REPO=self-repo-plugin
