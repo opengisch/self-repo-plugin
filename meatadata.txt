@@ -1,0 +1,10 @@
+[general]
+name=self-repo-plugin
+description=
+about=
+version=$VAL
+qgisMinimumVersion=3.0
+repository=https://github.com/opengisch/self-repo-plugin
+tracker=https://github.com/opengisch/self-repo-plugin/issues
+author=Mario Baranzini, OPENGIS.ch
+email=mario@opengis.ch
