@@ -12,9 +12,8 @@ env:
   global:
   - REPO=self-repo-plugin
 before_deploy:
-- cd ..
 # zip all excluded hidden files and dirs (e.g. .git)
-- zip -r ${TRAVIS_BUILD_DIR}.zip ${REPO} -x ${TRAVIS_BUILD_DIR}/.*
+- zip -r ../${TRAVIS_BUILD_DIR}.zip . -x ".*"
 
 deploy:
   provider: releases
