@@ -9,6 +9,7 @@ install:
   - cd ..
   - rm -rf self-repo-plugin
   - git clone https://github.com/opengisch/self-repo-plugin.git
+  - cd self-repo-plugin
   - pip install -r requirements.txt
 script:
   # TODO use pytest to run some tests
