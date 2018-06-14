@@ -6,7 +6,7 @@ before_install:
   - sudo apt-get install -y xmlstarlet
 install:
   # yes, I'm cloning the repo again. see https://stackoverflow.com/questions/32580821
-  - git clone git@github.com:${TRAVIS_REPO_SLUG}.git
+  - git clone https://github.com/opengisch/self-repo-plugin.git
   - pip install -r requirements.txt
 script:
   # TODO use pytest to run some tests
