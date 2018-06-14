@@ -12,7 +12,7 @@ env:
   global:
   - REPO=self-repo-plugin
 before_deploy:
-# change the version number in release
+# change the version number in metadata.txt file
 - sed -i "s/^\(version\s*=\s*\).*$/\1${TRAVIS_TAG}/" metadata.txt
 - less metadata.txt
 
