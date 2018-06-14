@@ -17,7 +17,7 @@ before_deploy:
 - less metadata.txt
 
 # zip all excluded hidden files and dirs (e.g. .git)
-- zip -r ${TRAVIS_BUILD_DIR}.zip . -x ".*"
+- zip -r ${TRAVIS_BUILD_DIR}.zip myplugin -x ".*"
 
 deploy:
   provider: releases
