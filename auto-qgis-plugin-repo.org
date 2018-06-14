@@ -1,0 +1,21 @@
+* Automating the deploy of a plugin to a repo
+** Possibilities
+*** External repo + Ansible
+*** Usign Github/Gitlab as a repo
+**** DONE Update the metadata file on tag
+     CLOSED: [2018-06-13 mer 22:41]
+**** TODO commit and push back the modified metadata.txt into the repo with a beautiful message
+**** DONE Create the zip file of the project on tag
+     CLOSED: [2018-06-13 mer 22:12]
+**** TODO Update the plugin.xml file on tag
+** Steps
+*** Installed Travis CLI locally 
+https://github.com/travis-ci/travis.rb#installation
+*** Created github repo (self-repo-plugin)
+*** Added repo to Travis
+https://travis-ci.org/profile/opengisch
+*** Created the .travis.yml first draft with travis setup releases
+https://docs.travis-ci.com/user/deployment/releases/
+*** Completed the .travis.xml
+*** Created plugins.xml 
+https://raw.githubusercontent.com/opengisch/self-repo-plugin/master/plugins.xml

@@ -1,7 +1,7 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type='text/xsl' href='/plugins.xsl' ?>
 <plugins>
-  <pyqgis_plugin name='My Plugin' version='1.1'>
+  <pyqgis_plugin name="My Plugin" version="1.1">
     <description>My plugin</description>
     <qgis_minimum_version>3.0</qgis_minimum_version>
     <homepage>http://github.com/opengisch/self-repo-plugin</homepage>
