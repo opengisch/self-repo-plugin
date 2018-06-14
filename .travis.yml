@@ -5,6 +5,8 @@ python:
 before_install:
   - sudo apt-get install -y xmlstarlet
 install:
+  # yes, I'm cloning the repo again. see https://stackoverflow.com/questions/32580821
+  - git clone git@github.com:${TRAVIS_REPO_SLUG}.git
   - pip install -r requirements.txt
 script:
   # TODO use pytest to run some tests
@@ -14,25 +16,24 @@ env:
   global:
   - REPO=self-repo-plugin
 before_deploy:
+  - git checkout master
 
-- git checkout master
+  # change the version number in metadata.txt file
+  - sed -i "s/^\(version\s*=\s*\).*$/\1${TRAVIS_TAG}/" myplugin/metadata.txt
+  - cat myplugin/metadata.txt
 
-# change the version number in metadata.txt file
-- sed -i "s/^\(version\s*=\s*\).*$/\1${TRAVIS_TAG}/" myplugin/metadata.txt
-- cat myplugin/metadata.txt
+  # change the version number and the download url in plugins.xml
+  - xmlstarlet ed -L -u //download_url -v "https://github.com/opengisch/self-repo-plugin/releases/download/${TRAVIS_TAG}/myplugin.zip" plugins.xml
+  - xmlstarlet ed -L -u //pyqgis_plugin/@version -v "${TRAVIS_TAG}" plugins.xml
+  - cat plugins.xml
 
-# change the version number and the download url in plugins.xml
-- xmlstarlet ed -L -u //download_url -v "https://github.com/opengisch/self-repo-plugin/releases/download/${TRAVIS_TAG}/myplugin.zip" plugins.xml
-- xmlstarlet ed -L -u //pyqgis_plugin/@version -v "${TRAVIS_TAG}" plugins.xml
-- cat plugins.xml
+  # commit metadata.txt and plugins.xml files
+  - git add myplugin/metadata.txt plugins.xml
+  - git commit -m "Update metadata.txt and plugins.xml to version ${TRAVIS_TAG}"
+  - git push
 
-# commit metadata.txt and plugins.xml files
-- git add myplugin/metadata.txt plugins.xml
-- git commit -m "Update metadata.txt and plugins.xml to version ${TRAVIS_TAG}"
-- git push
-
-# zip the plugin dir
-- zip -r myplugin.zip myplugin
+  # zip the plugin dir
+  - zip -r myplugin.zip myplugin
 
 deploy:
   provider: releases
