@@ -14,7 +14,7 @@ env:
 before_deploy:
 # change the version number in metadata.txt file
 - sed -i "s/^\(version\s*=\s*\).*$/\1${TRAVIS_TAG}/" myplugin/metadata.txt
-- less metadata.txt
+- less myplugin/metadata.txt
 
 # zip all excluded hidden files and dirs (e.g. .git)
 - zip -r ${TRAVIS_BUILD_DIR}.zip myplugin -x ".*"
