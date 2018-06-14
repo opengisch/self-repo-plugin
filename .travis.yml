@@ -23,8 +23,13 @@ before_deploy:
 - xmlstarlet ed -L -u //pyqgis_plugin/@version -v "${TRAVIS_TAG}" plugins.xml
 - cat plugins.xml
 
-# zip all excluded hidden files and dirs (e.g. .git)
-- zip -r myplugin.zip myplugin -x ".*"
+# commit metadata.txt and plugins.xml files
+- git add myplugin/metadata.txt plugins.xml
+- git commit -m "Update metadata.txt and plugins.xml to version ${TRAVIS_TAG}"
+- git push
+
+# zip the plugin dir
+- zip -r myplugin.zip myplugin
 
 deploy:
   provider: releases
