@@ -26,7 +26,7 @@ before_deploy:
 # commit metadata.txt and plugins.xml files
 - git add myplugin/metadata.txt plugins.xml
 - git commit -m "Update metadata.txt and plugins.xml to version ${TRAVIS_TAG}"
-- git push
+- git push origin master
 
 # zip the plugin dir
 - zip -r myplugin.zip myplugin
