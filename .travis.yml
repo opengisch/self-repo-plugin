@@ -15,7 +15,7 @@ env:
   - REPO=self-repo-plugin
 before_deploy:
 
- - git checkout master
+- git checkout master
 
 # change the version number in metadata.txt file
 - sed -i "s/^\(version\s*=\s*\).*$/\1${TRAVIS_TAG}/" myplugin/metadata.txt
