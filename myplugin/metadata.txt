@@ -2,7 +2,7 @@
 name=self-repo-plugin
 description=
 about=
-version=0.0.52
+version=0.0.53
 qgisMinimumVersion=3.0
 repository=https://github.com/opengisch/self-repo-plugin
 tracker=https://github.com/opengisch/self-repo-plugin/issues
