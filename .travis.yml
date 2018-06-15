@@ -17,7 +17,6 @@ install:
   - cd self-repo-plugin
   - git remote rm origin
   - git remote add origin https://${GITHUB_TOKEN}@github.com/opengisch/self-repo-plugin.git
-  - echo ${GITHUB_TOKEN}
   - pip install -r requirements.txt
 script:
   # TODO use pytest to run some tests
