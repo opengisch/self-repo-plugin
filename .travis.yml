@@ -11,7 +11,7 @@ install:
   - git clone https://github.com/opengisch/self-repo-plugin.git
   - cd self-repo-plugin
   - git remote rm origin
-  - git remote add origin https://marioba:125b468c0cb206fe6325c6f75e9f5312dc4e949f@github.com/opengisch/self-repo-plugin.git
+  - git remote add origin https://marioba:${GITHUB_TOKEN}@github.com/opengisch/self-repo-plugin.git
   - pip install -r requirements.txt
 script:
   # TODO use pytest to run some tests
@@ -20,7 +20,7 @@ script:
 env:
   global:
   - REPO=self-repo-plugin
-  - GH_TOKEN=DgacP/iPPmNuq2/SwQY2jFKWDMtJ6ivCR8j0e0EQSLvNxILglxlxFMn78KWWyD2fJVRdV/9M1JCj99hDSiQrmX2+y7imyyPqcj7IBB5d4AH115V7/kD2HyLRinXMwyDaNnT7VDmkByRSRebYZn63/WU3TF7vDMqkUT4ohSdLgz+bq1/evCmjgWfkWTwE/4feAzW9/9/fsoD1TBS4pNZeRQPgTLoS0Tr60VhoEUcFcTZe3Zhc+Y3sYNiWWRg+gxPz4x7lVYvRHogqfBIjp7LYB/QH0PLCSys+4vFCoUCJW6RdGu8eOwlgWB6vzhesKEhGXbnRGBrHwYa4IazBQ/c6Sb4UEm4ECvO2II8yPZwSJP2AzejHgqFLhRAfoR89a3jvXJNh+4jO4E742b/vyOPO3Tb1Nfl7y6flxrnqpCd3qlca8dFIzgnEBxQuLmW44I1wAI7bQY7YOSSS1gdSlEfyAPtOqqCVum5dAbgCn8BHn0isErLXPCOAK1vWW0DIvHrO1DMipt7rFB35oiYqetC0hY2iW3KYDQq5RoJn0r7dfZkFGWkzzqOPmx23YC75R0B7T/yUzZfHzBNzgTGEeWBa7JMb3IJ2g6IMuXPtf4qc8A8WCJYiy+sCDoYy+FbJYq6AjkHcM2KehVFzciiVKZS++fpFDU9QeZ/g2fz85nTHJng=
+  - secure: DgacP/iPPmNuq2/SwQY2jFKWDMtJ6ivCR8j0e0EQSLvNxILglxlxFMn78KWWyD2fJVRdV/9M1JCj99hDSiQrmX2+y7imyyPqcj7IBB5d4AH115V7/kD2HyLRinXMwyDaNnT7VDmkByRSRebYZn63/WU3TF7vDMqkUT4ohSdLgz+bq1/evCmjgWfkWTwE/4feAzW9/9/fsoD1TBS4pNZeRQPgTLoS0Tr60VhoEUcFcTZe3Zhc+Y3sYNiWWRg+gxPz4x7lVYvRHogqfBIjp7LYB/QH0PLCSys+4vFCoUCJW6RdGu8eOwlgWB6vzhesKEhGXbnRGBrHwYa4IazBQ/c6Sb4UEm4ECvO2II8yPZwSJP2AzejHgqFLhRAfoR89a3jvXJNh+4jO4E742b/vyOPO3Tb1Nfl7y6flxrnqpCd3qlca8dFIzgnEBxQuLmW44I1wAI7bQY7YOSSS1gdSlEfyAPtOqqCVum5dAbgCn8BHn0isErLXPCOAK1vWW0DIvHrO1DMipt7rFB35oiYqetC0hY2iW3KYDQq5RoJn0r7dfZkFGWkzzqOPmx23YC75R0B7T/yUzZfHzBNzgTGEeWBa7JMb3IJ2g6IMuXPtf4qc8A8WCJYiy+sCDoYy+FbJYq6AjkHcM2KehVFzciiVKZS++fpFDU9QeZ/g2fz85nTHJng=
 before_deploy:
   - git status
   #  - git checkout master
