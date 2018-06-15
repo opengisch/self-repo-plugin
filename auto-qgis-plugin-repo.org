@@ -19,3 +19,26 @@ https://docs.travis-ci.com/user/deployment/releases/
 *** Completed the .travis.xml
 *** Created plugins.xml 
 https://raw.githubusercontent.com/opengisch/self-repo-plugin/master/plugins.xml
+
+** Article's abstract
+The QGIS plugins repository https://plugins.qgis.org/plugins/ is a great place to share our plugins with other users. It is also possible to tag a plugin as experimental as long as it is under development. However, sometimes it can be useful, for example, if a very specific plugin we are developing makes sense that it is only distributed to a limited number of people, to create an alternative repository, or in a CI context (TODO clarify). If we have a server available it is not difficult to configure it to use it as a repository for plugins (and maybe in a future article we will see how to automate this creation). In this article, I want to show how you can directly use the Github source code repository as a QGIS plugins repository. Everything is automated so that at each new tag creation, a new version of the plugin is automatically made available to be installed in QGIS via the plugins manager. And I will also discuss about how to apply continuous integration in a QGIS plugin development.
+
+Topics (draft):
+- Introduction 
+  - How to release a QGIS plugin
+  - Official QGIS plugins repository
+  - Private plugins repository
+- Introduction to continuous integration
+- Introduction to Travis
+- How to automate a plugin repository on Github
+  - Install Travis CLI
+    - Create and encrypt Github token
+  - Configure Travis
+    - Add the Github repo
+    - .travis.yml
+  - The structure of a QGIS plugins repository
+  - Automatically update metadata.txt's version
+  - Automatically update plugins.xml's version and download path
+  - Push back metadata.txt and plugins.xml
+  - Automatically zip and publish the release file 
+  - Add our repository to QGIS
