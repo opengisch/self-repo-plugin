@@ -11,7 +11,7 @@ install:
   - git clone https://github.com/opengisch/self-repo-plugin.git
   - cd self-repo-plugin
   - git remote rm origin
-  - git remote add origin https://marioba:${GH_TOKEN}@github.com/opengisch/self-repo-plugin.git
+  - git remote add origin https://marioba:125b468c0cb206fe6325c6f75e9f5312dc4e949f@github.com/opengisch/self-repo-plugin.git
   - pip install -r requirements.txt
 script:
   # TODO use pytest to run some tests
