@@ -7,7 +7,6 @@ env:
   - REPO=self-repo-plugin
 
 before_install:
-  - sudo apt-get install -y xmlstarlet
 
 install: true
 
@@ -15,7 +14,10 @@ install: true
 script: true
 
 before_deploy:
-  # yes, I'm cloning the repo again. see https://stackoverflow.com/questions/32580821
+  - sudo apt-get install -y xmlstarlet
+  # Travis will clone my repo with "git clone --depth=50 --branch=..." and apparently it's not possible to change this behaviour
+  # I want to be able to commit back to master so I delete the repo and I clone the complete repo again.
+  # see https://stackoverflow.com/questions/32580821
   - cd ..
   - rm -rf self-repo-plugin
   - git clone https://github.com/opengisch/self-repo-plugin.git
