@@ -14,7 +14,6 @@ install:
 
 script:
   # TODO use pytest to run some tests
-  - pwd
 
 before_deploy:
   # yes, I'm cloning the repo again. see https://stackoverflow.com/questions/32580821
