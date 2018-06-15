@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type='text/xsl' href='/plugins.xsl' ?>
 <plugins>
-  <pyqgis_plugin name="My Plugin" version="0.0.52">
+  <pyqgis_plugin name="My Plugin" version="0.0.53">
     <description>My plugin</description>
     <qgis_minimum_version>3.0</qgis_minimum_version>
     <homepage>http://github.com/opengisch/self-repo-plugin</homepage>
     <file_name>myplugin.zip</file_name>
     <author_name>Mario Baranzini</author_name>
-    <download_url>https://github.com/opengisch/self-repo-plugin/releases/download/0.0.52/myplugin.zip</download_url>
+    <download_url>https://github.com/opengisch/self-repo-plugin/releases/download/0.0.53/myplugin.zip</download_url>
   </pyqgis_plugin>
 </plugins>
