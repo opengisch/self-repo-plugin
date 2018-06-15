@@ -10,10 +10,11 @@ before_install:
   - sudo apt-get install -y xmlstarlet
 
 install:
-  - pip install -r requirements.txt
+  -
 
 script:
   # TODO use pytest to run some tests
+  -
 
 before_deploy:
   # yes, I'm cloning the repo again. see https://stackoverflow.com/questions/32580821
