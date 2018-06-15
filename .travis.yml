@@ -9,12 +9,10 @@ env:
 before_install:
   - sudo apt-get install -y xmlstarlet
 
-install:
-  -
+install: true
 
-script:
-  # TODO use pytest to run some tests
-  -
+# TODO use pytest to run some tests
+script: true
 
 before_deploy:
   # yes, I'm cloning the repo again. see https://stackoverflow.com/questions/32580821
