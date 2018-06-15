@@ -4,7 +4,8 @@ python:
   - "3.6"
 env:
   global:
-  - REPO=self-repo-plugin
+    - REPO=self-repo-plugin
+    - QGIS_PLUGIN=myplugin
 
 before_install:
 
@@ -19,33 +20,31 @@ before_deploy:
   # I want to be able to commit back to master so I delete the repo and I clone the complete repo again.
   # see https://stackoverflow.com/questions/32580821
   - cd ..
-  - rm -rf self-repo-plugin
-  - git clone https://github.com/opengisch/self-repo-plugin.git
-  - cd self-repo-plugin
+  - rm -rf ${REPO}
+  - git clone https://github.com/${TRAVIS_REPO_SLUG}.git
+  - cd ${REPO}
   - git remote rm origin
-  - git remote add origin https://${GITHUB_TOKEN}@github.com/opengisch/self-repo-plugin.git
+  - git remote add origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
 
   # zip the plugin dir
-  - zip -r myplugin.zip myplugin
+  - zip -r ${QGIS_PLUGIN}.zip ${QGIS_PLUGIN}
 
 deploy:
   provider: releases
   api_key: ${GITHUB_TOKEN}
-  file: myplugin.zip
+  file: ${QGIS_PLUGIN}.zip
   skip_cleanup: true
   on:
-    repo: opengisch/self-repo-plugin
+    repo: ${TRAVIS_REPO_SLUG}
     tags: true
 
 after_deploy:
   # change the version number in metadata.txt file
   - sed -i "s/^\(version\s*=\s*\).*$/\1${TRAVIS_TAG}/" myplugin/metadata.txt
-  - cat myplugin/metadata.txt
 
   # change the version number and the download url in plugins.xml
-  - xmlstarlet ed -L -u //download_url -v "https://github.com/opengisch/self-repo-plugin/releases/download/${TRAVIS_TAG}/myplugin.zip" plugins.xml
+  - xmlstarlet ed -L -u //download_url -v "https://github.com/${TRAVIS_REPO_SLUG}/releases/download/${TRAVIS_TAG}/${QGIS_PLUGIN}.zip" plugins.xml
   - xmlstarlet ed -L -u //pyqgis_plugin/@version -v "${TRAVIS_TAG}" plugins.xml
-  - cat plugins.xml
 
   # commit metadata.txt and plugins.xml files
   - git add myplugin/metadata.txt plugins.xml
